@@ -1,0 +1,31 @@
+{
+    "connection-pool": {
+        "ip": "localhost",
+        "port": 3306,
+        "userName": "netdisk",
+        "passwd": "040507",
+        "dbName": "netdisk",
+        "minConnSize": 1,
+        "maxConnSize": 150,
+        "maxIdleTime": 5000,
+        "maxWaitTime": 5000
+    },
+    "thread-pool": {
+        "maxIdleTime": 60,
+        "maxThreads": 16,
+        "minThreads": 5,
+        "adjustAddThreads": 5,
+        "adjustDuration": 60
+    },
+    "log": {
+        "level": 0,
+        "path": "./logfile",
+        "mode": 1,
+        "maxQueueSize": 1024
+    },
+    "server-setting": {
+        "ip": "0.0.0.0",
+        "port": 8080,
+        "connSustainTime": 300
+    }
+}

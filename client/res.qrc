@@ -1,0 +1,32 @@
+<RCC>
+    <qresource prefix="/config">
+        <file>res/config.ini</file>
+    </qresource>
+    <qresource prefix="/img">
+        <file>res/img/transmit_unselected.png</file>
+        <file>res/img/transmit_selected.png</file>
+        <file>res/img/setting.png</file>
+        <file>res/img/logout.png</file>
+        <file>res/img/icon.png</file>
+        <file>res/img/friend_unselected.png</file>
+        <file>res/img/friend_selected.png</file>
+        <file>res/img/folder_unselected.png</file>
+        <file>res/img/folder_selected.png</file>
+        <file>res/img/userInfo.png</file>
+        <file>res/img/search.png</file>
+        <file>res/img/notification.png</file>
+        <file>res/img/flush.png</file>
+        <file>res/img/upload.png</file>
+        <file>res/img/share.png</file>
+        <file>res/img/rename.png</file>
+        <file>res/img/folder.png</file>
+        <file>res/img/file.png</file>
+        <file>res/img/download.png</file>
+        <file>res/img/delete.png</file>
+        <file>res/img/addfolder.png</file>
+        <file>res/img/back.png</file>
+        <file>res/img/pause.png</file>
+        <file>res/img/continue.png</file>
+        <file>res/img/cancel.png</file>
+    </qresource>
+</RCC>

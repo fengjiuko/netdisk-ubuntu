@@ -1,0 +1,59 @@
+[INFO ]2025-09-02 15:03:31 - The database connection pool initialization is complete.
+[INFO ]2025-09-02 15:03:31 - The thread pool initialization is complete.
+[INFO ]2025-09-02 15:03:31 - Start event loop...
+[INFO ]2025-09-02 15:04:01 - The new conneciton 127.0.0.1:46308.
+[DEBUG]2025-09-02 15:04:01 - Got request from <127.0.0.1:46308:null>
+[INFO ]2025-09-02 15:04:01 - Started processing login requests from user <127.0.0.1:46308:null>.
+[INFO ]2025-09-02 15:04:01 - Database connection pool has adjust the number of connection to 2
+[DEBUG]2025-09-02 15:04:01 - Respond to <127.0.0.1:46308:null>, totalLen: 34, msgLen: 22, type: 3, msg: {failure
+status:201
+}.
+[INFO ]2025-09-02 15:04:06 - Database connection pool has adjust the number of connection to 1
+[INFO ]2025-09-02 15:04:09 - Database connection pool has adjust the number of connection to 2
+[INFO ]2025-09-02 15:04:09 - Connection <127.0.0.1:46308:null> closed.
+[INFO ]2025-09-02 15:04:09 - The new conneciton 127.0.0.1:57528.
+[DEBUG]2025-09-02 15:04:09 - Got request from <127.0.0.1:57528:null>
+[INFO ]2025-09-02 15:04:09 - Started processing login requests from user <127.0.0.1:57528:null>.
+[DEBUG]2025-09-02 15:04:09 - Respond to <127.0.0.1:57528:null>, totalLen: 34, msgLen: 22, type: 3, msg: {failure
+status:203
+}.
+[INFO ]2025-09-02 15:04:14 - Database connection pool has adjust the number of connection to 1
+[INFO ]2025-09-02 15:04:42 - Thread pool has adjust the number of work thread to 5
+[INFO ]2025-09-02 15:05:42 - Thread pool has adjust the number of work thread to 5
+[INFO ]2025-09-02 15:05:50 - Database connection pool has adjust the number of connection to 2
+[INFO ]2025-09-02 15:05:50 - Connection <127.0.0.1:57528:null> closed.
+[INFO ]2025-09-02 15:05:50 - The new conneciton 127.0.0.1:49476.
+[DEBUG]2025-09-02 15:05:50 - Got request from <127.0.0.1:49476:null>
+[INFO ]2025-09-02 15:05:50 - Started processing login requests from user <127.0.0.1:49476:null>.
+[DEBUG]2025-09-02 15:05:50 - Respond to <127.0.0.1:49476:11>, totalLen: 41, msgLen: 29, type: 3, msg: {success
+id:11
+status:100
+}.
+[DEBUG]2025-09-02 15:05:50 - Got request from <127.0.0.1:49476:11>
+[INFO ]2025-09-02 15:05:50 - Started processing get folder content requests from user <127.0.0.1:49476:11>.
+[DEBUG]2025-09-02 15:05:50 - Respond to <127.0.0.1:49476:11>, totalLen: 189, msgLen: 177, type: 16, msg: {hyfaaa|0|18446744073709551615
+netdisk-master.zip|1|599614
+qt-online-installer-linux-arm64-4.10.0.run.tmp|1|17394688
+qt-online-installer-linux-x64-4.10.0.run.tmp|1|36654080
+}.
+[INFO ]2025-09-02 15:05:55 - Database connection pool has adjust the number of connection to 1
+[DEBUG]2025-09-02 15:05:55 - Got request from <127.0.0.1:49476:11>
+[INFO ]2025-09-02 15:05:55 - Started processing get firend list requests from user <127.0.0.1:49476:11>.
+[INFO ]2025-09-02 15:05:55 - Database connection pool has adjust the number of connection to 2
+[DEBUG]2025-09-02 15:05:55 - Respond to <127.0.0.1:49476:11>, totalLen: 53, msgLen: 41, type: 14, msg: {12|jzs@example.com
+13|hat@example.com
+}.
+[DEBUG]2025-09-02 15:05:59 - Got request from <127.0.0.1:49476:11>
+[INFO ]2025-09-02 15:05:59 - Started processing get folder content requests from user <127.0.0.1:49476:11>.
+[DEBUG]2025-09-02 15:05:59 - Respond to <127.0.0.1:49476:11>, totalLen: 189, msgLen: 177, type: 16, msg: {hyfaaa|0|18446744073709551615
+netdisk-master.zip|1|599614
+qt-online-installer-linux-arm64-4.10.0.run.tmp|1|17394688
+qt-online-installer-linux-x64-4.10.0.run.tmp|1|36654080
+}.
+[INFO ]2025-09-02 15:06:01 - Database connection pool has adjust the number of connection to 1
+[INFO ]2025-09-02 15:06:42 - Thread pool has adjust the number of work thread to 5
+[INFO ]2025-09-02 15:07:42 - Thread pool has adjust the number of work thread to 5
+[INFO ]2025-09-02 15:08:42 - Thread pool has adjust the number of work thread to 5
+[INFO ]2025-09-02 15:09:42 - Thread pool has adjust the number of work thread to 5
+[INFO ]2025-09-02 15:10:42 - Thread pool has adjust the number of work thread to 5
+[INFO ]2025-09-02 15:10:59 - Database connection pool has adjust the number of connection to 2
