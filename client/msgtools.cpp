@@ -65,6 +65,12 @@ MsgUnit *MsgTools::generateGetFriendListRequest(QString from)
     return msgHandler(str, MsgType::MSG_TYPE_GETFRIENDLIST_REQUEST);
 }
 
+MsgUnit *MsgTools::generateSendPrivateMsgRequest(QString from, QString to, QString message)
+{
+    QString str = QString("from:%1\r\nto:%2\r\nmsg:%3\r\n").arg(from).arg(to).arg(message);
+    return msgHandler(str, MsgType::MSG_TYPE_SENDPRIVATEMSG_REQUEST);
+}
+
 MsgUnit *MsgTools::generateGetFolderContentRequest(QString path)
 {
     QString str = QString("path:%1\r\n").arg(path);

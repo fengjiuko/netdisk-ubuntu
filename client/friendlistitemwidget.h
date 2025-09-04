@@ -23,6 +23,12 @@ public:
     QString getEmail() const;
     void setRightText(QString t) const;
 
+protected:
+    void mousePressEvent(QMouseEvent *event) override;
+
+signals:
+    void clicked(QString friendId, QString friendEmail);
+
 private:
     Ui::FListItemWidget *ui;
 

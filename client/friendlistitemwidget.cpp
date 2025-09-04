@@ -1,5 +1,6 @@
 #include "friendlistitemwidget.h"
 #include "ui_flistitemwidget.h"
+#include <QMouseEvent>
 
 FriendListItemWidget::FriendListItemWidget(QString l, QString r, QString _id, QString _email, QWidget *parent) :
     id(_id),

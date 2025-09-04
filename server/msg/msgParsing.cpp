@@ -12,7 +12,7 @@ std::vector<std::string> MsgParsing::split_string(const std::string &str, std::s
     return tokens; 
 }
 
-MsgUnit *MsgParsing::loginRespond(const MsgUnit *munit, ConnResources& ur)
+MsgUnit *MsgParsing::loginRespond(const MsgUnit *munit, ConnResources& ur, my_bev* mbev)
 {
     using namespace std;
     string msg((char*)munit->msg);
@@ -33,6 +33,8 @@ MsgUnit *MsgParsing::loginRespond(const MsgUnit *munit, ConnResources& ur)
     {
         // cout << status << endl;
         ur.setUserId(to_string(id));
+        // 将用户连接添加到连接管理器
+        ConnectionManager::getInstance().addConnection(ur.getUserId(), mbev);
         content = ("success\r\nid:" + ur.getUserId() + "\r\nstatus:" + to_string(statusCode) + "\r\n");
     }
 
@@ -721,7 +723,7 @@ MsgUnit *MsgParsing::parsing(const MsgUnit *munit, my_bev* mbev)
     case MsgType::MSG_TYPE_LOGIN_REQUEST:
     {   
         LogFunc::info("Started processing login requests from user %s.", mbev->getConnectionInfo().c_str());
-        return loginRespond(munit, mbev->ur);
+        return loginRespond(munit, mbev->ur, mbev);
     }
 
     // 退出登陆请求
@@ -868,6 +870,13 @@ MsgUnit *MsgParsing::parsing(const MsgUnit *munit, my_bev* mbev)
         return downloadFileContinueRespond(munit, mbev->ur);
     }
 
+    // 发送私聊消息请求
+    case MsgType::MSG_TYPE_SENDPRIVATEMSG_REQUEST:
+    {
+        LogFunc::info("Started processing send private message requests from user %s.", mbev->getConnectionInfo().c_str());
+        return sendPrivateMsgRespond(munit, mbev);
+    }
+
     // 未知请求
     default:
         break;
@@ -888,4 +897,72 @@ std::string MsgParsing::getRow(const MsgUnit *munit, int index)
 std::vector<std::string> MsgParsing::getAllRows(const MsgUnit *munit)
 {
     return split_string(std::string((char*)munit->msg), "\r\n");
+}
+
+MsgUnit* MsgParsing::sendPrivateMsgRespond(const MsgUnit* munit, my_bev* mbev)
+{
+    using namespace std;
+    
+    // 解析消息格式: from:{发送者ID}\r\nto:{接收者ID}\r\nmsg:{消息内容}\r\n
+    vector<string> tokens = getAllRows(munit);
+    if (tokens.size() < 3)
+        return nullptr;
+        
+    string from, to, message;
+    for (const string& token : tokens)
+    {
+        if (token.substr(0, 5) == "from:")
+            from = token.substr(5);
+        else if (token.substr(0, 3) == "to:")
+            to = token.substr(3);
+        else if (token.substr(0, 4) == "msg:")
+            message = token.substr(4);
+    }
+    
+    if (from.empty() || to.empty() || message.empty())
+    {
+        string content = "failure\r\nstatus:INVALID_PARAMS\r\n";
+        return MsgUnit::make_dataunit(MsgType::MSG_TYPE_SENDPRIVATEMSG_RESPOND, 
+                                    strlen(content.c_str()), content.c_str());
+    }
+    
+    // 检查接收方是否在线
+    ConnectionManager& connMgr = ConnectionManager::getInstance();
+    if (!connMgr.isUserOnline(to))
+    {
+        string content = "failure\r\nstatus:USER_OFFLINE\r\n";
+        return MsgUnit::make_dataunit(MsgType::MSG_TYPE_SENDPRIVATEMSG_RESPOND, 
+                                    strlen(content.c_str()), content.c_str());
+    }
+    
+    // 获取接收方连接
+    my_bev* targetBev = connMgr.getConnection(to);
+    if (!targetBev)
+    {
+        string content = "failure\r\nstatus:USER_OFFLINE\r\n";
+        return MsgUnit::make_dataunit(MsgType::MSG_TYPE_SENDPRIVATEMSG_RESPOND, 
+                                    strlen(content.c_str()), content.c_str());
+    }
+    
+    // 构造转发给接收方的消息
+    string notifyContent = "from:" + from + "\r\nmsg:" + message + "\r\n";
+    MsgUnit* notify = MsgUnit::make_dataunit(MsgType::MSG_TYPE_RECEIVEPRIVATEMSG_NOTIFY,
+                                           strlen(notifyContent.c_str()), notifyContent.c_str());
+    
+    // 发送消息给接收方
+    if (notify && bufferevent_write(targetBev->bev, (char*)notify, notify->totalLen) == 0)
+    {
+        free(notify);
+        // 返回成功响应给发送方
+        string content = "success\r\nstatus:MESSAGE_SENT\r\n";
+        return MsgUnit::make_dataunit(MsgType::MSG_TYPE_SENDPRIVATEMSG_RESPOND, 
+                                    strlen(content.c_str()), content.c_str());
+    }
+    else
+    {
+        if (notify) free(notify);
+        string content = "failure\r\nstatus:SEND_FAILED\r\n";
+        return MsgUnit::make_dataunit(MsgType::MSG_TYPE_SENDPRIVATEMSG_RESPOND, 
+                                    strlen(content.c_str()), content.c_str());
+    }
 }

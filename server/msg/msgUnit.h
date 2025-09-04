@@ -102,6 +102,12 @@ enum MsgType {
     MSG_TYPE_DOWNLOADFILE_CONTINUE_RESPOND,
     /// @brief 文件下载错误时，将错误返回设置的消息类型，单独作为一个类型主要是方便客户端解析消息
     MSG_TYPE_DOWNLOADFILE_FAILURE_RESPOND,
+    /// @brief 发送私聊消息请求
+    MSG_TYPE_SENDPRIVATEMSG_REQUEST,
+    /// @brief 发送私聊消息响应
+    MSG_TYPE_SENDPRIVATEMSG_RESPOND,
+    /// @brief 接收私聊消息通知（服务器主动推送给接收方）
+    MSG_TYPE_RECEIVEPRIVATEMSG_NOTIFY,
     TYPE_NUM
 };
 

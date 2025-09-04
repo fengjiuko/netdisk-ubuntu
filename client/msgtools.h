@@ -77,6 +77,15 @@ public:
     static MsgUnit* generateGetFriendListRequest(QString from);
 
     /**
+     * @brief 生成发送私聊消息请求
+     * @param from 发送者id
+     * @param to 接收者id
+     * @param message 消息内容
+     * @return
+     */
+    static MsgUnit* generateSendPrivateMsgRequest(QString from, QString to, QString message);
+
+    /**
      * @brief 生成获取文件夹内容请求
      * @param path 文件夹路径
      * @return

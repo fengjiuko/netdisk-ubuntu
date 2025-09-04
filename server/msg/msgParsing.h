@@ -11,6 +11,7 @@
 #include "../server/mybev.hpp"
 #include "../idatabase/idatabase.h"
 #include "../ifilefolder/ifilefolder.h"
+#include "../connResources/connectionManager.h"
 
 #include <regex>
 #include <iostream>
@@ -33,8 +34,10 @@ private:
 
     /// @brief 处理登陆请求
     /// @param munit 通信消息
+    /// @param ur 用户资源
+    /// @param mbev 用户连接
     /// @return 返回登陆响应
-    static MsgUnit* loginRespond(const MsgUnit* munit, ConnResources& ur);
+    static MsgUnit* loginRespond(const MsgUnit* munit, ConnResources& ur, my_bev* mbev);
 
     /// @brief 处理退出登陆请求
     /// @param munit 通信消息
@@ -65,6 +68,12 @@ private:
     /// @param munit 通信消息
     /// @return 返回对应用户的好友列表
     static MsgUnit* getFriendListRespond(const MsgUnit* munit);
+
+    /// @brief 处理发送私聊消息请求
+    /// @param munit 通信消息
+    /// @param mbev 发送者连接
+    /// @return 返回发送响应
+    static MsgUnit* sendPrivateMsgRespond(const MsgUnit* munit, my_bev* mbev);
 
     /// @brief 处理获取文件夹内容请求
     /// @param munit 通信消息

@@ -3,6 +3,7 @@
  */
 
 #include "server.h"
+#include "../connResources/connectionManager.h"
 
 struct timeval connSustainTime;
 
@@ -184,7 +185,11 @@ void event_cb(struct bufferevent *bev, short what, void *ctx)
     if (what & BEV_EVENT_EOF || what & BEV_EVENT_TIMEOUT)
     {
         if ("" != mbev->ur.getUserId())
+        {
             IDatabase::logout(mbev->ur.getUserId());
+            // 从连接管理器中移除用户连接
+            ConnectionManager::getInstance().removeConnection(mbev->ur.getUserId());
+        }
         if (what & BEV_EVENT_EOF)
             LogFunc::info("Connection %s closed.", mbev->getConnectionInfo().c_str());
         // Printf("Connection closed\n");
