@@ -16,14 +16,14 @@
 ![服务器框架图](../DemoImages/ServerFramework.png)
 
 <span id="运行环境"></span>
-服务器端环境
-操作系统:Ubuntu 22.04.4 LTS
-核心依赖: libevent 2.1.12, MySQL客户端库 8.0.37
-编译器: GCC/G++ (C++20支持)
-数据库: MySQL 8.0+
+**服务器端环境
+*操作系统:Ubuntu 22.04.4 LTS
+*核心依赖: libevent 2.1.12, MySQL客户端库 8.0.37
+*编译器: GCC/G++ (C++20支持)
+*数据库: MySQL 8.0+
 
-客户端环境
-操作系统:Ubuntu 22.04.4 LTS
-UI框架: Qt 6.2.3+ (Core, GUI, Widgets, Network)
-编译标准: C++17。
+**客户端环境
+*操作系统:Ubuntu 22.04.4 LTS
+*UI框架: Qt 6.2.3+ (Core, GUI, Widgets, Network)
+*编译标准: C++17。
 [<--](../README.md)
