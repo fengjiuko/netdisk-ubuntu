@@ -3,6 +3,7 @@
 SOURCES := \
 	buffer/buffer.cpp \
 	connResources/connResources.cpp \
+	connResources/connectionManager.cpp \
 	idatabase/idatabase.cpp	\
 	ifilefolder/ifilefolder.cpp \
 	json/jsoncpp.cpp \

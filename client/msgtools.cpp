@@ -165,7 +165,8 @@ QString MsgTools::getRow(const MsgUnit *munit, int index)
 
 QStringList MsgTools::getAllRows(const MsgUnit *munit)
 {
-    return QString((char*)munit->msg).split("\r\n");
+    QStringList result = QString((char*)munit->msg).split("\r\n", Qt::SkipEmptyParts);
+    return result;
 }
 
 

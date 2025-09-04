@@ -1,0 +1,62 @@
+[INFO ]2025-09-03 10:52:52 - The database connection pool initialization is complete.
+[INFO ]2025-09-03 10:52:52 - The thread pool initialization is complete.
+[INFO ]2025-09-03 10:52:52 - Start event loop...
+[INFO ]2025-09-03 10:53:12 - The new conneciton 127.0.0.1:41386.
+[DEBUG]2025-09-03 10:53:12 - Got request from <127.0.0.1:41386:null>
+[INFO ]2025-09-03 10:53:12 - Started processing login requests from user <127.0.0.1:41386:null>.
+[INFO ]2025-09-03 10:53:12 - Database connection pool has adjust the number of connection to 2
+[DEBUG]2025-09-03 10:53:12 - Respond to <127.0.0.1:41386:null>, totalLen: 34, msgLen: 22, type: 3, msg: {failure
+status:201
+}.
+[INFO ]2025-09-03 10:53:18 - Database connection pool has adjust the number of connection to 1
+[INFO ]2025-09-03 10:53:22 - Database connection pool has adjust the number of connection to 2
+[INFO ]2025-09-03 10:53:22 - Connection <127.0.0.1:41386:null> closed.
+[INFO ]2025-09-03 10:53:22 - The new conneciton 127.0.0.1:32788.
+[DEBUG]2025-09-03 10:53:22 - Got request from <127.0.0.1:32788:null>
+[INFO ]2025-09-03 10:53:22 - Started processing login requests from user <127.0.0.1:32788:null>.
+[DEBUG]2025-09-03 10:53:22 - Respond to <127.0.0.1:32788:null>, totalLen: 34, msgLen: 22, type: 3, msg: {failure
+status:201
+}.
+[INFO ]2025-09-03 10:53:27 - Connection <127.0.0.1:32788:null> closed.
+[INFO ]2025-09-03 10:53:27 - The new conneciton 127.0.0.1:41522.
+[DEBUG]2025-09-03 10:53:27 - Got request from <127.0.0.1:41522:null>
+[INFO ]2025-09-03 10:53:27 - Started processing login requests from user <127.0.0.1:41522:null>.
+[DEBUG]2025-09-03 10:53:27 - Respond to <127.0.0.1:41522:null>, totalLen: 34, msgLen: 22, type: 3, msg: {failure
+status:201
+}.
+[INFO ]2025-09-03 10:53:33 - Database connection pool has adjust the number of connection to 1
+[INFO ]2025-09-03 10:53:37 - Database connection pool has adjust the number of connection to 2
+[INFO ]2025-09-03 10:53:37 - Connection <127.0.0.1:41522:null> closed.
+[INFO ]2025-09-03 10:53:37 - The new conneciton 127.0.0.1:36196.
+[DEBUG]2025-09-03 10:53:37 - Got request from <127.0.0.1:36196:null>
+[INFO ]2025-09-03 10:53:37 - Started processing login requests from user <127.0.0.1:36196:null>.
+[DEBUG]2025-09-03 10:53:37 - Respond to <127.0.0.1:36196:null>, totalLen: 34, msgLen: 22, type: 3, msg: {failure
+status:201
+}.
+[INFO ]2025-09-03 10:53:43 - Database connection pool has adjust the number of connection to 1
+[INFO ]2025-09-03 10:53:46 - Database connection pool has adjust the number of connection to 2
+[INFO ]2025-09-03 10:53:46 - Connection <127.0.0.1:36196:null> closed.
+[INFO ]2025-09-03 10:53:46 - The new conneciton 127.0.0.1:50644.
+[DEBUG]2025-09-03 10:53:46 - Got request from <127.0.0.1:50644:null>
+[INFO ]2025-09-03 10:53:46 - Started processing login requests from user <127.0.0.1:50644:null>.
+[DEBUG]2025-09-03 10:53:46 - Respond to <127.0.0.1:50644:null>, totalLen: 34, msgLen: 22, type: 3, msg: {failure
+status:201
+}.
+[INFO ]2025-09-03 10:53:52 - Database connection pool has adjust the number of connection to 1
+[INFO ]2025-09-03 10:54:01 - Database connection pool has adjust the number of connection to 2
+[INFO ]2025-09-03 10:54:01 - Connection <127.0.0.1:50644:null> closed.
+[INFO ]2025-09-03 10:54:01 - The new conneciton 127.0.0.1:59956.
+[DEBUG]2025-09-03 10:54:01 - Got request from <127.0.0.1:59956:null>
+[INFO ]2025-09-03 10:54:01 - Started processing login requests from user <127.0.0.1:59956:null>.
+[DEBUG]2025-09-03 10:54:01 - Respond to <127.0.0.1:59956:null>, totalLen: 34, msgLen: 22, type: 3, msg: {failure
+status:202
+}.
+[INFO ]2025-09-03 10:54:02 - Thread pool has adjust the number of work thread to 5
+[INFO ]2025-09-03 10:54:06 - Connection <127.0.0.1:59956:null> closed.
+[INFO ]2025-09-03 10:54:06 - The new conneciton 127.0.0.1:42484.
+[DEBUG]2025-09-03 10:54:06 - Got request from <127.0.0.1:42484:null>
+[INFO ]2025-09-03 10:54:06 - Started processing login requests from user <127.0.0.1:42484:null>.
+[DEBUG]2025-09-03 10:54:06 - Respond to <127.0.0.1:42484:null>, totalLen: 34, msgLen: 22, type: 3, msg: {failure
+status:202
+}.
+[INFO ]2025-09-03 10:54:11 - Database connection pool has adjust the number of connection to 1

@@ -9,6 +9,7 @@
 #include "msgUnit.h"
 #include "../wrap/wrap.h"
 #include "../server/mybev.hpp"
+#include <event.h>
 #include "../idatabase/idatabase.h"
 #include "../ifilefolder/ifilefolder.h"
 #include "../connResources/connectionManager.h"
