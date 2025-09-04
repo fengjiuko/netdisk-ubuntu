@@ -26,6 +26,10 @@ private:
 
     QString userId;
     QString userEmail;
+    
+    // 私聊相关
+    QString currentChatFriendId;
+    QString currentChatFriendEmail;
 
     void init();
     void iniSignalSlots();
@@ -35,6 +39,19 @@ private:
      * @param sptr
      */
     void flushFriendList(std::shared_ptr<MsgUnit> sptr);
+    
+    /**
+     * @brief 开始与好友私聊
+     * @param friendId 好友ID
+     * @param friendEmail 好友邮箱
+     */
+    void startChatWithFriend(QString friendId, QString friendEmail);
+    
+    /**
+     * @brief 显示收到的私聊消息
+     * @param sptr 消息单元
+     */
+    void displayPrivateMessage(std::shared_ptr<MsgUnit> sptr);
 
 private slots:
     /*按钮槽函数*/

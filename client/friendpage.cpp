@@ -17,6 +17,7 @@
 #include <QListWidgetItem>
 #include <QSize>
 #include <QPoint>
+#include <QDateTime>
 
 FriendPage::FriendPage(QString _userId, QString _userEmail, QWidget *parent) :
     userId(_userId),
@@ -92,6 +93,9 @@ void FriendPage::flushFriendList(std::shared_ptr<MsgUnit> sptr)
         FriendListItemWidget* iw = new FriendListItemWidget(para[1], "", para[0], para[1], ui->friendList);
         ui->friendList->setItemWidget(item, iw);
         item->setSizeHint(QSize(ui->friendList->width() - 10, iw->height()));
+        
+        // 连接好友列表项的点击信号
+        connect(iw, &FriendListItemWidget::clicked, this, &FriendPage::startChatWithFriend);
     }
 }
 
@@ -126,7 +130,29 @@ void FriendPage::clickTbClear()
 
 void FriendPage::clickTbSend()
 {
-
+    if (currentChatFriendId.isEmpty()) {
+        BubbleTips::showBubbleTips("请先选择要聊天的好友", 2, this);
+        return;
+    }
+    
+    QString message = ui->inputBox->toPlainText().trimmed();
+    if (message.isEmpty()) {
+        BubbleTips::showBubbleTips("消息内容不能为空", 2, this);
+        return;
+    }
+    
+    // 发送私聊消息
+    emit _sendMsg(MsgTools::generateSendPrivateMsgRequest(userId, currentChatFriendId, message));
+    
+    // 在聊天框中显示发送的消息
+    QString displayMsg = QString("[%1] %2: %3\n")
+                        .arg(QDateTime::currentDateTime().toString("hh:mm:ss"))
+                        .arg(userEmail)
+                        .arg(message);
+    ui->chatBox->append(displayMsg);
+    
+    // 清空输入框
+    ui->inputBox->clear();
 }
 
 void FriendPage::clickTbNotification()
@@ -170,4 +196,70 @@ void FriendPage::getMsg(std::shared_ptr<MsgUnit> sptr)
         emit respondVerify(sptr);
     else if (MsgType::MSG_TYPE_GETFRIENDLIST_RESPOND == sptr->msgType)
         emit respondGetFriendList(sptr);
+    else if (MsgType::MSG_TYPE_SENDPRIVATEMSG_RESPOND == sptr->msgType)
+    {
+        // 处理发送私聊消息的响应
+        QStringList list = MsgTools::getAllRows(sptr.get());
+        if (list.size() >= 1 && list[0] == "failure") {
+            QString errorMsg = "消息发送失败";
+            if (list.size() >= 2) {
+                QString status = list[1];
+                if (status.contains("USER_OFFLINE")) {
+                    errorMsg = "好友当前不在线，消息发送失败";
+                } else if (status.contains("INVALID_PARAMS")) {
+                    errorMsg = "消息格式错误";
+                } else if (status.contains("SEND_FAILED")) {
+                    errorMsg = "网络错误，消息发送失败";
+                }
+            }
+            BubbleTips::showBubbleTips(errorMsg, 2, this);
+        } else if (list.size() >= 1 && list[0] == "success") {
+            // 消息发送成功，可以显示一个简短的提示
+            // BubbleTips::showBubbleTips("消息发送成功", 1, this);
+        }
+    }
+    else if (MsgType::MSG_TYPE_RECEIVEPRIVATEMSG_NOTIFY == sptr->msgType)
+    {
+        // 处理接收到的私聊消息
+        displayPrivateMessage(sptr);
+    }
+}
+
+void FriendPage::startChatWithFriend(QString friendId, QString friendEmail)
+{
+    currentChatFriendId = friendId;
+    currentChatFriendEmail = friendEmail;
+    
+    // 显示聊天界面
+    ui->chatBox->show();
+    ui->chatBox->clear();
+    
+    // 设置聊天标题
+    QString chatTitle = QString("与 %1 聊天").arg(friendEmail);
+    // 这里可以设置窗口标题或者其他UI元素来显示当前聊天对象
+    
+    BubbleTips::showBubbleTips(QString("开始与 %1 聊天").arg(friendEmail), 1, this);
+}
+
+void FriendPage::displayPrivateMessage(std::shared_ptr<MsgUnit> sptr)
+{
+    QStringList list = MsgTools::getAllRows(sptr.get());
+    
+    if (list.size() >= 3) {
+        QString from = list[0].mid(5); // 去掉 "from:" 前缀
+        QString to = list[1].mid(3);   // 去掉 "to:" 前缀
+        QString message = list[2].mid(4); // 去掉 "msg:" 前缀
+        
+        // 只有当前正在聊天的好友发来的消息才显示
+        if (from == currentChatFriendId) {
+            QString displayMsg = QString("[%1] %2: %3\n")
+                                .arg(QDateTime::currentDateTime().toString("hh:mm:ss"))
+                                .arg(currentChatFriendEmail)
+                                .arg(message);
+            ui->chatBox->append(displayMsg);
+        } else {
+            // 如果不是当前聊天对象，显示通知
+            BubbleTips::showBubbleTips(QString("收到来自 %1 的消息").arg(from), 2, this);
+        }
+    }
 }

@@ -36,3 +36,11 @@ void FriendListItemWidget::setRightText(QString t) const
 {
     ui->rightLabel->setText(t);
 }
+
+void FriendListItemWidget::mousePressEvent(QMouseEvent *event)
+{
+    if (event->button() == Qt::LeftButton) {
+        emit clicked(id, email);
+    }
+    QWidget::mousePressEvent(event);
+}
