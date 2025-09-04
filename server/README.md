@@ -16,21 +16,14 @@
 ![服务器框架图](../DemoImages/ServerFramework.png)
 
 <span id="运行环境"></span>
-## 运行环境
-* 操作系统：Ubuntu 22.04.4 LTS
-* 开发工具：Visual Studio Code
-* 依赖库：  
-    - libevent 2.1.12-stable
-    - libmysqlclient-dev 8.0.37-0ubuntu0.22.04.3
-* docker
-    ```shell
-    docker pull ghcr.io/fhwhsa/netdisk/netdiskserverenv:latest
-    ```
-    * 项目路径：`/opt/netdisk/server`
-    * 注意事项：
-        * 数据库
-            * 启动：`service mysql start`
-            * 用户名及密码：root，123456
-        * 数据库用户信息为空
+服务器端环境
+操作系统:Ubuntu 22.04.4 LTS
+核心依赖: libevent 2.1.12, MySQL客户端库 8.0.37
+编译器: GCC/G++ (C++20支持)
+数据库: MySQL 8.0+
 
+客户端环境
+操作系统:Ubuntu 22.04.4 LTS
+UI框架: Qt 6.2.3+ (Core, GUI, Widgets, Network)
+编译标准: C++17。
 [<--](../README.md)
