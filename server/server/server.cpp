@@ -9,6 +9,12 @@ struct timeval connSustainTime;
 
 int run(std::string host, uint port, const Json::Value &root, struct timeval _connSustainTime)
 {
+    // 初始化libevent线程支持
+    if (evthread_use_pthreads() != 0)
+    {
+        LogFunc::error("Could not initialize libevent threading!");
+        throw std::exception();
+    }
     // 初始化数据库连接池
     ConnectionPool::getInstance().initFromConfig(root);
 

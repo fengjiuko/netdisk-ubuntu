@@ -15,7 +15,7 @@ SOURCES := \
 	server/server.cpp \
 	run.cpp
 
-SLIB := event mysqlclient
+SLIB := event event_core event_extra event_pthreads mysqlclient pthread
 FLAGS := -Wall -O2 -std=c++20
 
 _SLIB := $(foreach it, $(SLIB), -l$(it))

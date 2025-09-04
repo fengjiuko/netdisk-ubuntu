@@ -22,6 +22,7 @@
 #include <signal.h>
 #include <event.h>
 #include <event2/listener.h>
+#include <event2/thread.h>
 #include <arpa/inet.h>
 #include <event.h>
 #include <sys/types.h>

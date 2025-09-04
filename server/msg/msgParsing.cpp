@@ -945,7 +945,7 @@ MsgUnit* MsgParsing::sendPrivateMsgRespond(const MsgUnit* munit, my_bev* mbev)
     }
     
     // 构造转发给接收方的消息
-    string notifyContent = "from:" + from + "\r\nmsg:" + message + "\r\n";
+    string notifyContent = "from:" + from + "\r\nto:" + to + "\r\nmsg:" + message + "\r\n";
     MsgUnit* notify = MsgUnit::make_dataunit(MsgType::MSG_TYPE_RECEIVEPRIVATEMSG_NOTIFY,
                                            strlen(notifyContent.c_str()), notifyContent.c_str());
     

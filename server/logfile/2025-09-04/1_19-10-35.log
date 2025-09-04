@@ -1,0 +1,71 @@
+[INFO ]2025-09-04 19:10:35 - The database connection pool initialization is complete.
+[INFO ]2025-09-04 19:10:35 - The thread pool initialization is complete.
+[INFO ]2025-09-04 19:10:35 - Start event loop...
+[INFO ]2025-09-04 19:10:57 - The new conneciton 127.0.0.1:58012.
+[DEBUG]2025-09-04 19:10:57 - Got request from <127.0.0.1:58012:null>
+[INFO ]2025-09-04 19:10:57 - Started processing login requests from user <127.0.0.1:58012:null>.
+[INFO ]2025-09-04 19:10:57 - Database connection pool has adjust the number of connection to 2
+[DEBUG]2025-09-04 19:10:57 - Respond to <127.0.0.1:58012:16>, totalLen: 41, msgLen: 29, type: 3, msg: {success
+id:16
+status:100
+}.
+[DEBUG]2025-09-04 19:10:58 - Got request from <127.0.0.1:58012:16>
+[INFO ]2025-09-04 19:10:58 - Started processing get folder content requests from user <127.0.0.1:58012:16>.
+[DEBUG]2025-09-04 19:10:58 - Respond to <127.0.0.1:58012:16>, totalLen: 36, msgLen: 24, type: 16, msg: {login.o.tmp|1|1065984
+}.
+[INFO ]2025-09-04 19:11:03 - Database connection pool has adjust the number of connection to 1
+[INFO ]2025-09-04 19:11:04 - The new conneciton 127.0.0.1:40460.
+[DEBUG]2025-09-04 19:11:04 - Got request from <127.0.0.1:40460:null>
+[INFO ]2025-09-04 19:11:04 - Started processing login requests from user <127.0.0.1:40460:null>.
+[INFO ]2025-09-04 19:11:04 - Database connection pool has adjust the number of connection to 2
+[DEBUG]2025-09-04 19:11:04 - Respond to <127.0.0.1:40460:15>, totalLen: 41, msgLen: 29, type: 3, msg: {success
+id:15
+status:100
+}.
+[DEBUG]2025-09-04 19:11:04 - Got request from <127.0.0.1:40460:15>
+[INFO ]2025-09-04 19:11:04 - Started processing get folder content requests from user <127.0.0.1:40460:15>.
+[DEBUG]2025-09-04 19:11:04 - Respond to <127.0.0.1:40460:15>, totalLen: 13, msgLen: 1, type: 16, msg: {}.
+[DEBUG]2025-09-04 19:11:05 - Got request from <127.0.0.1:40460:15>
+[INFO ]2025-09-04 19:11:05 - Started processing get firend list requests from user <127.0.0.1:40460:15>.
+[DEBUG]2025-09-04 19:11:05 - Respond to <127.0.0.1:40460:15>, totalLen: 29, msgLen: 17, type: 14, msg: {16|jzs
+14|hat
+}.
+[DEBUG]2025-09-04 19:11:07 - Got request from <127.0.0.1:58012:16>
+[INFO ]2025-09-04 19:11:07 - Started processing get firend list requests from user <127.0.0.1:58012:16>.
+[DEBUG]2025-09-04 19:11:07 - Respond to <127.0.0.1:58012:16>, totalLen: 29, msgLen: 17, type: 14, msg: {14|hat
+15|hyf
+}.
+[DEBUG]2025-09-04 19:11:10 - Got request from <127.0.0.1:58012:16>
+[INFO ]2025-09-04 19:11:10 - Started processing send private message requests from user <127.0.0.1:58012:16>.
+[DEBUG]2025-09-04 19:11:10 - Respond to <127.0.0.1:58012:16>, totalLen: 43, msgLen: 31, type: 47, msg: {failure
+status:USER_OFFLINE
+}.
+[INFO ]2025-09-04 19:11:10 - Database connection pool has adjust the number of connection to 1
+[DEBUG]2025-09-04 19:11:15 - Got request from <127.0.0.1:58012:16>
+[INFO ]2025-09-04 19:11:15 - Started processing send private message requests from user <127.0.0.1:58012:16>.
+[DEBUG]2025-09-04 19:11:15 - Respond to <127.0.0.1:58012:16>, totalLen: 43, msgLen: 31, type: 47, msg: {success
+status:MESSAGE_SENT
+}.
+[DEBUG]2025-09-04 19:11:18 - Got request from <127.0.0.1:40460:15>
+[INFO ]2025-09-04 19:11:18 - Started processing send private message requests from user <127.0.0.1:40460:15>.
+[DEBUG]2025-09-04 19:11:18 - Respond to <127.0.0.1:40460:15>, totalLen: 43, msgLen: 31, type: 47, msg: {success
+status:MESSAGE_SENT
+}.
+[DEBUG]2025-09-04 19:11:34 - Got request from <127.0.0.1:40460:15>
+[INFO ]2025-09-04 19:11:34 - Started processing send private message requests from user <127.0.0.1:40460:15>.
+[DEBUG]2025-09-04 19:11:34 - Respond to <127.0.0.1:40460:15>, totalLen: 43, msgLen: 31, type: 47, msg: {success
+status:MESSAGE_SENT
+}.
+[INFO ]2025-09-04 19:11:38 - Database connection pool has adjust the number of connection to 2
+[INFO ]2025-09-04 19:11:38 - Connection <127.0.0.1:40460:15> closed.
+[INFO ]2025-09-04 19:11:39 - Connection <127.0.0.1:58012:16> closed.
+[INFO ]2025-09-04 19:11:43 - Database connection pool has adjust the number of connection to 1
+[INFO ]2025-09-04 19:11:45 - Thread pool has adjust the number of work thread to 5
+[INFO ]2025-09-04 19:12:17 - Caught an interrupt signal.
+[INFO ]2025-09-04 19:12:17 - Database connection pool has adjust the number of connection to 2
+[INFO ]2025-09-04 19:12:19 - Start cleaning up thread pool resources.
+[INFO ]2025-09-04 19:12:22 - Database connection pool has adjust the number of connection to 1
+[INFO ]2025-09-04 19:12:46 - Thread pool has adjust the number of work thread to 5
+[INFO ]2025-09-04 19:12:46 - Thread pool resource cleanup is complete.
+[INFO ]2025-09-04 19:12:46 - Start cleaning up database connection pool resources.
+[INFO ]2025-09-04 19:12:47 - Database connection pool  resource cleanup is complete.
